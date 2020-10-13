@@ -3,8 +3,8 @@ library(tidyverse)
 library(ggplot2)
 #install library
 
-impair_2018 <- read.csv("2018DRIMPAIR.csv")
-damage_2018 <- read.csv("2018PARKWORK.csv")
+impair_2018 <- read.csv("Bryan Chung/Data_BC/2018DRIMPAIR.csv")
+damage_2018 <- read.csv("Bryan Chung/Data_BC/2018PARKWORK.csv")
 #read the data into R
 
 
@@ -58,6 +58,46 @@ impdam_2018 <- left_join(
          )
 )
 
-view(trydamimp)
+impair_2017 <- read.csv("Bryan Chung/Data_BC/2017DRIMPAIR.csv")
+damage_2017 <- read.csv("Bryan Chung/Data_BC/2017PARKWORK.csv")
+
+impair_2017 %>%
+  select(
+    c(
+      2,
+      4
+    )
+  )
+
+cimpair_2017 <- impair_2017 %>%
+  select(
+    c(
+      2,
+      4
+    )
+  )
+
+damage_2017 %>%
+  select(
+    c(
+      2,
+      51
+    )
+  )
 
 
+cdamage_2017 <- damage_2017 %>%
+  select(
+    c(
+      2,
+      51
+    )
+  )
+
+impdam_2017 <- left_join(
+  cimpair_2017,
+  cdamage_2017,
+  by = c(
+    'ST_CASE'
+  )
+)    
