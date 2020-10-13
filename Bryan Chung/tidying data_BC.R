@@ -102,3 +102,4 @@ impdam_2017 <- left_join(
   )
 )    
 
+df
