@@ -60,7 +60,7 @@ impdam_2018 <- left_join(
 
 impair_2017 <- read.csv("Bryan Chung/Data_BC/2017DRIMPAIR.csv")
 damage_2017 <- read.csv("Bryan Chung/Data_BC/2017PARKWORK.csv")
-
+#yo
 impair_2017 %>%
   select(
     c(
