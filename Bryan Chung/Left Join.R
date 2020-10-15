@@ -1,14 +1,14 @@
 #Left Join
 
-impdam_yurr <- left_join(
-  read.csv("Bryan Chung/Data_BC/yurrDRIMPAIR.csv") %>%
-    select(s
+impdam_YEAR <- left_join(
+  read.csv("Bryan Chung/Data_BC/YEARDRIMPAIR.csv") %>%
+    select(
       c(
         2,
         4
       )
     ),
-  read.csv("Bryan Chung/Data_BC/yurrPARKWORK.csv") %>%
+  read.csv("Bryan Chung/Data_BC/YEARPARKWORK.csv") %>%
     select(
       c(
         2,
