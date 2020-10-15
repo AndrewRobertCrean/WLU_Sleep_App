@@ -102,4 +102,53 @@ impdam_2017 <- left_join(
   )
 )    
 
-df
+tidy <- function(table1, table2) {
+  tidyimp <- gather(
+    table1[2,4]
+    )
+  tidydam <- gather(
+    table2[2,51]
+    )
+  }
+
+impdam_year <- left_join(
+  impair_year %>%
+    select(
+      c(
+        2,
+        4
+      )
+    ),
+  damage_year %>%
+    select(
+      c(
+        2,
+        51
+      )
+    ),
+  by = c(
+    'ST_CASE'
+  )
+)
+
+
+#let's try clean version
+impdam_2018 <- left_join(
+  read.csv("Bryan Chung/Data_BC/2018DRIMPAIR.csv") %>%
+    select(
+      c(
+        2,
+        4
+      )
+    ),
+  read.csv("Bryan Chung/Data_BC/2018PARKWORK.csv") %>%
+    select(
+      c(
+        2,
+        51
+      )
+    ),
+  by = c(
+    'ST_CASE'
+  )
+)
