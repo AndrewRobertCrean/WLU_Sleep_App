@@ -22,3 +22,17 @@ impdam_comb %>%
   geom_density(
     alpha = 0.2
   )
+
+
+
+
+impdam_comb %>%
+  ggplot(
+    aes(
+      IMPAIRMENT_TYPE,
+      PVEH_SEV
+        )
+  ) +
+  geom_bar(
+    stat = 'identity'
+  ) + theme(axis.text.x = element_text(angle = 60, hjust = 1))
