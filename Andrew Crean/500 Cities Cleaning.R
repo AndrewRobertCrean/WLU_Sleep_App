@@ -12,12 +12,13 @@ install.packages("ggpubr")
 
 #Piping for Sleep Variable
 
-View(Five_Hundred_Cities)
+FiveHundredCitiesCompressed <- readRDS("~/Sleep_App/Andrew Crean/FiveHundredCitiesCompressed.RDS")
 
-Five_Hundred_Cities_Sleep_na <- Five_Hundred_Cities %>%
+View(FiveHundredCitiesCompressed)
+
+Five_Hundred_Cities_Sleep_na <- FiveHundredCitiesCompressed %>%
   select(Year, StateAbbr, CityName, Measure, Data_Value, PopulationCount, GeoLocation) %>% 
-  filter(Measure == "Sleeping less than 7 hours among adults aged >=18 Years") %>%
-  drop_na(CityName)
+  filter(Measure == "Sleeping less than 7 hours among adults aged >=18 Years")
 
 View(Five_Hundred_Cities_Sleep_na)
 
