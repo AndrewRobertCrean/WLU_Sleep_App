@@ -1,6 +1,6 @@
-impair <- c("Apparently Normal", "Blackout", "Asleep or Fatigued", "Walking with a Cane or Crutches", "Paraplegic or in a Wheelchair", "Impaired Due to Previous Injury", "Deaf", "Blind", "Emotional", "DUI", "Physical Impairment-No Details", "Other Physical Impairment", "Not Reported", "Unknown if Impaired")
+labels <- c("Apparently Normal", "Blackout", "Asleep or Fatigued", "Walking with a Cane or Crutches", "Paraplegic or in a Wheelchair", "Impaired Due to Previous Injury", "Deaf", "Blind", "Emotional", "DUI", "Physical Impairment-No Details", "Other Physical Impairment", "Not Reported", "Unknown if Impaired")
 
-names(impair) <- c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "96", "98", "99")
+names(labels) <- c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "96", "98", "99")
 
 impdam_2018$IMPAIRMENT_TYPE <- labels[as.character(impdam_2018$DRIMPAIR)]
 
@@ -21,4 +21,5 @@ impdam_2015$ST_CASE <- paste("2015_",impdam_2015$ST_CASE)
 impdam_2014$IMPAIRMENT_TYPE <- labels[as.character(impdam_2014$DRIMPAIR)]
 
 impdam_2014$ST_CASE <- paste("2014_",impdam_2014$ST_CASE)
+
 

@@ -1,41 +1,24 @@
 impdam_2014 %>%
-  group_by(labimpair) %>%
+  
+
+impdam_comb %>%
+  group_by(IMPAIRMENT_TYPE) %>%
   summarise(avg_damage = mean(PVEH_SEV, na.rm = TRUE)) %>%
-  ggplot(aes(labimpair, avg_damagg)) + geom_point()
-
-
-impdam_2014 %>%
   ggplot(
     aes(
-    PVEH_SEV,
-    fill = labimpair
+      IMPAIRMENT_TYPE,
+      avg_damage
+    )
+  ) + 
+  geom_point()
+
+impdam_comb %>%
+  ggplot(
+    aes(
+      PVEH_SEV,
+      fill = IMPAIRMENT_TYPE
     )
   ) +
   geom_density(
-    alpha = 0.5
-  )
-
-impdam_2014 %>%
-  ggplot(
-    aes(
-      labimpair,
-      PVEH_SEV
-    )
-  ) +
-  geom_
-    
-  )
-
-impdam_2014 %>%
-  group_by(labimpair) %>%
-  summarise(avg_dam = mean(PVEH_SEV, na.rm = TRUE)) %>%
-  ggplot(
-    aes(
-      labimpair,
-      avg_dam
-    )
-  ) +
-  geom_bar(
-    state = 
-      'identity'
+    alpha = 0.2
   )
