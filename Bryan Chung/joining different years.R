@@ -7,3 +7,18 @@ impdam_comb <- rbind(
   impdam_2015,
   impdam_2014
 )
+
+library(dplyr)
+
+
+#these are maybe
+finimpdam <- filter(
+  impdam_comb,
+  IMPAIRMENT_TYPE == c(
+  "Apparently Normal",
+  "Asleep or Fatigued",
+  "Blackout",
+  "DUI",
+  "Other Physical Impairment"
+  )
+) 
