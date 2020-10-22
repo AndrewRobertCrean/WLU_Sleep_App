@@ -1,16 +1,20 @@
-impdam_2014 %>%
-  
-
 impdam_comb %>%
-  group_by(IMPAIRMENT_TYPE) %>%
-  summarise(avg_damage = mean(PVEH_SEV, na.rm = TRUE)) %>%
   ggplot(
     aes(
       IMPAIRMENT_TYPE,
-      avg_damage
-    )
+       PVEH_SEV,
+      na.rm = TRUE
+        )
+  ) +
+  geom_bar(
+    stat = 'identity'
   ) + 
-  geom_point()
+  theme(
+    axis.text.x = element_text(
+      angle = 60, 
+      hjust = 1
+      )
+    )
 
 impdam_comb %>%
   ggplot(
@@ -20,19 +24,22 @@ impdam_comb %>%
     )
   ) +
   geom_density(
-    alpha = 0.2
-  )
-
-
-
+  alpha = .2
+    )
 
 impdam_comb %>%
   ggplot(
     aes(
       IMPAIRMENT_TYPE,
       PVEH_SEV
-        )
+    )
   ) +
-  geom_bar(
-    stat = 'identity'
-  ) + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+  geom_point(
+    
+  ) +
+  theme(
+    axis.text.x = element_text(
+      angle = 60, 
+      hjust = 1
+    )
+  )

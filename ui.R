@@ -11,6 +11,25 @@ fluidPage(
   
 #tabs of web app pages in the side bar#
 
+fluidPage(
+  
+  titlePanel("Sleep Health Impact"),
+  
+  navlistPanel(
+    "Sleep Health Impact Analysis",
+    tabPanel("500 Cities Sleep Health Data",
+             h3("500 Cities Sleep Health Data")
+    ),
+    tabPanel("Railroad Dispatchers' Sleep Health",
+             h3("Railroad Dispatchers' Sleep Health")
+    ),
+    tabPanel("Type of Impairment and Extent of Damage",
+             h3("Type of Impairment and Extent of Damage")
+    )
+  )
+)
+
+
 ##information brochure on the right side#
 
 ##Citations or sources used for data##
