@@ -3,7 +3,6 @@
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
-library(ggpubr)
 library(stringr)
 
 #Need Profs Help
@@ -47,10 +46,10 @@ View(Five_Hundred_Cities_Individuals_per_City)
 
 #Adding Back GeoLocation
 
-inner_join(Five_Hundred_Cities_Individuals_per_City, 
-           Five_Hundred_Cities_Sleep, by= c("GeoLocation"))
+Five_Hundred_Cities_Individuals_per_City_Geo <- left_join(Five_Hundred_Cities_Individuals_per_City, 
+           Five_Hundred_Cities_Sleep["CityName", "GeoLocation"], by= c("CityName" = "CityName"), copy = TRUE)
 
-View(Five_Hundred_Cities_Individuals_per_City)
+View(Five_Hundred_Cities_Individuals_per_City_Geo)
 
 #"Risk Level" Command
 
