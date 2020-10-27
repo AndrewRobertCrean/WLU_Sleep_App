@@ -76,8 +76,19 @@ Sleep_and_Geolocation$RiskLevel <-
 
 View(Sleep_and_Geolocation)
 
+#Who is High/Low Risk
 
-#Breakdown into 19, 25 City Dataframes (Alphabetically)
+View(Sleep_and_Geolocation)
+
+High_Risk_Cities <- filter(Sleep_and_Geolocation, RiskLevel == "High Risk")
+
+View(High_Risk_Cities)
+
+Low_Risk_Cities<- filter(Sleep_and_Geolocation, RiskLevel == "Low Risk")
+
+View(Low_Risk_Cities)
+
+#Breakdown into 19, 25 City Dataframes (Alphabetically)#
 
 Visual_1 <- Five_Hundred_Cities_Individuals_per_City [1:25,]
 Visual_2 <- Five_Hundred_Cities_Individuals_per_City [26:50,]
@@ -99,7 +110,7 @@ Visual_17 <- Five_Hundred_Cities_Individuals_per_City [401:425,]
 Visual_18 <- Five_Hundred_Cities_Individuals_per_City [426:450,]
 Visual_19 <- Five_Hundred_Cities_Individuals_per_City [451:474,]
 
-#Top 10 Visualization
+#Top 10 Visualization#
 
 Visual_Top_Ten <- 
   Five_Hundred_Cities_Individuals_per_City [c("New York", "Los Angeles", "Chicago",
@@ -110,14 +121,14 @@ View(Visual_Top_Ten)
 
 str(Five_Hundred_Cities_Individuals_per_City)
 
-#High Risk Visualization
+#High Risk Visualization#
 
 Visual_High_Risk_plot<- ggplot(Five_Hundred_Cities_Individuals_per_City_High,
                                aes(CityName, y=`sum(Individuals)`, fill=Level)) + 
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90))
 
-#Basic Count Boxplots
+#Basic Count Boxplots#
 
 Visual_1_plot<- ggplot(Visual_1, aes(CityName, y=`sum(Individuals)`, fill=Level)) + 
   geom_bar(stat="identity") + 
@@ -177,24 +188,10 @@ Visual_19_plot<- ggplot(Visual_19, aes(CityName, y=`sum(Individuals)`, fill=Leve
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90))
 
-#Combining all 19 Boxplots
+#Combining all 19 Boxplots# (NEVER COMPLETED)
 
 ggarrange(Visual_1_plot, Visual_2_plot,Visual_3_plot,Visual_4_plot,Visual_5_plot,
           Visual_6_plot, Visual_7_plot,Visual_8_plot,Visual_9_plot,Visual_10_plot,
           Visual_11_plot, Visual_12_plot,Visual_13_plot,Visual_14_plot,Visual_15_plot,
           Visual_16_plot, Visual_17_plot,Visual_18_plot, Visual_19_plot)
 
-#Who is High/Low Risk
-
-Five_Hundred_Cities_Individuals_per_City$High_Risk <- 
-  (Five_Hundred_Cities_Individuals_per_City$Data_Value >= 40)
-
-View(Five_Hundred_Cities_Individuals_per_City)
-
-High_Risk_Cities <- filter(Five_Hundred_Cities_Individuals_per_City, High_Risk == "TRUE")
-
-View(High_Risk_Cities)
-
-Low_Risk_Cities<- filter(Five_Hundred_Cities_Individuals_per_City, High_Risk == "FALSE")
-
-View(Low_Risk_Cities)
