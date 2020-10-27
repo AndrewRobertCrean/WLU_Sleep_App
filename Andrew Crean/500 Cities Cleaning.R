@@ -61,11 +61,11 @@ Five_Hundred_Cities_Sleep_Geo$y <- sapply(strsplit(Five_Hundred_Cities_Sleep_Geo
 
 Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep_Geo %>%
   group_by(CityName) %>%
-  summarise(mean(`mean(x)`))
-
-Five_Hundred_Cities_Sleep_Geo <- duplicated( Five_Hundred_Cities_Sleep_Geo$CityName)
+  summarise(x = mean(x), y = mean(y))
 
 View(Five_Hundred_Cities_Sleep_Geo)
+
+left_join(Five_Hundred_Cities_Individuals_per_City, Five_Hundred_Cities_Sleep_Geo, by = "CityName")
 
 #"Risk Level" Command
 
