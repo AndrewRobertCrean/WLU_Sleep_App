@@ -1,15 +1,14 @@
-#Calling libraries
+#Calling libraries#
 
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(stringr)
 
-#Need Profs Help
+install.packages("tidyverse")
+install.packages("ellipsis")
 
-install.packages("ggpubr")
-
-#Piping for Sleep Variable
+#Piping for Sleep Variable#
 
 FiveHundredCitiesCompressed <- readRDS("~/Sleep_App/Andrew Crean/FiveHundredCitiesCompressed.RDS")
 
@@ -21,19 +20,19 @@ Five_Hundred_Cities_Sleep_na <- FiveHundredCitiesCompressed %>%
 
 View(Five_Hundred_Cities_Sleep_na)
 
-#Removing Missing Data Points
+#Removing Missing Data Points#
 
 Five_Hundred_Cities_Sleep <- 
   Five_Hundred_Cities_Sleep_na[complete.cases(Five_Hundred_Cities_Sleep_na), ]
 View(Five_Hundred_Cities_Sleep)
 
-#Percentages to Individual Counts
+#Percentages to Individual Counts#
 
 Five_Hundred_Cities_Sleep$Individuals <- 
   ((Five_Hundred_Cities_Sleep$Data_Value/100) * 
      Five_Hundred_Cities_Sleep$PopulationCount)
 
-#Individual Sums by City
+#Individual Sums by City#
 
 Five_Hundred_Cities_Individuals_per_City <- Five_Hundred_Cities_Sleep %>%
   group_by(CityName) %>%
@@ -44,8 +43,8 @@ Five_Hundred_Cities_Sleep_Grouped <- Five_Hundred_Cities_Sleep %>%
 
 View(Five_Hundred_Cities_Individuals_per_City)
 
-#Adding Back GeoLocation
-
+#Adding Back GeoLocation#
+  #Part One: Cleaning the Geolocation Data#
 Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep[,c("CityName", "GeoLocation")]
 View(Five_Hundred_Cities_Sleep_Geo)
 
@@ -65,25 +64,18 @@ Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep_Geo %>%
 
 View(Five_Hundred_Cities_Sleep_Geo)
 
-left_join(Five_Hundred_Cities_Individuals_per_City, Five_Hundred_Cities_Sleep_Geo, by = "CityName")
+  #Part Two: Joining#
+Sleep_and_Geolocation <- left_join(Five_Hundred_Cities_Individuals_per_City, Five_Hundred_Cities_Sleep_Geo, by = "CityName")
+View(Sleep_and_Geolocation)
 
-#"Risk Level" Command
+#"Risk Level" Command#
 
-Five_Hundred_Cities_Individuals_per_City$Level <- 
-  ifelse((Five_Hundred_Cities_Individuals_per_City$`sum(Individuals)`>=1000000),
+Sleep_and_Geolocation$RiskLevel <- 
+  ifelse((Sleep_and_Geolocation$Data_Value>=35),
          "High Risk", "Low Risk")
-print(Five_Hundred_Cities_Individuals_per_City_Level)
 
-View(Five_Hundred_Cities_Individuals_per_City)
+View(Sleep_and_Geolocation)
 
-#Grouping by Risk
-
-High_Risk_Cities <- (Five_Hundred_Cities_Individuals_per_City$Level == "High Risk")
-Five_Hundred_Cities_Individuals_per_City_High <- 
-  Five_Hundred_Cities_Individuals_per_City[c(78,94,102,115,179,181,192,
-                                             231,285,323,324,368,371),]
-
-View(Five_Hundred_Cities_Individuals_per_City_High)
 
 #Breakdown into 19, 25 City Dataframes (Alphabetically)
 
