@@ -1,15 +1,14 @@
-#Calling libraries
+#Calling libraries#
 
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(stringr)
 
-#Need Profs Help
+install.packages("tidyverse")
+install.packages("ellipsis")
 
-install.packages("ggpubr")
-
-#Piping for Sleep Variable
+#Piping for Sleep Variable#
 
 FiveHundredCitiesCompressed <- readRDS("~/Sleep_App/Andrew Crean/FiveHundredCitiesCompressed.RDS")
 
@@ -21,19 +20,19 @@ Five_Hundred_Cities_Sleep_na <- FiveHundredCitiesCompressed %>%
 
 View(Five_Hundred_Cities_Sleep_na)
 
-#Removing Missing Data Points
+#Removing Missing Data Points#
 
 Five_Hundred_Cities_Sleep <- 
   Five_Hundred_Cities_Sleep_na[complete.cases(Five_Hundred_Cities_Sleep_na), ]
 View(Five_Hundred_Cities_Sleep)
 
-#Percentages to Individual Counts
+#Percentages to Individual Counts#
 
 Five_Hundred_Cities_Sleep$Individuals <- 
   ((Five_Hundred_Cities_Sleep$Data_Value/100) * 
      Five_Hundred_Cities_Sleep$PopulationCount)
 
-#Individual Sums by City
+#Individual Sums by City#
 
 Five_Hundred_Cities_Individuals_per_City <- Five_Hundred_Cities_Sleep %>%
   group_by(CityName) %>%
@@ -44,8 +43,8 @@ Five_Hundred_Cities_Sleep_Grouped <- Five_Hundred_Cities_Sleep %>%
 
 View(Five_Hundred_Cities_Individuals_per_City)
 
-#Adding Back GeoLocation
-
+#Adding Back GeoLocation#
+  #Part One: Cleaning the Geolocation Data#
 Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep[,c("CityName", "GeoLocation")]
 View(Five_Hundred_Cities_Sleep_Geo)
 
@@ -65,27 +64,31 @@ Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep_Geo %>%
 
 View(Five_Hundred_Cities_Sleep_Geo)
 
-left_join(Five_Hundred_Cities_Individuals_per_City, Five_Hundred_Cities_Sleep_Geo, by = "CityName")
+  #Part Two: Joining#
+Sleep_and_Geolocation <- left_join(Five_Hundred_Cities_Individuals_per_City, Five_Hundred_Cities_Sleep_Geo, by = "CityName")
+View(Sleep_and_Geolocation)
 
-#"Risk Level" Command
+#"Risk Level" Command#
 
-Five_Hundred_Cities_Individuals_per_City$Level <- 
-  ifelse((Five_Hundred_Cities_Individuals_per_City$`sum(Individuals)`>=1000000),
+Sleep_and_Geolocation$RiskLevel <- 
+  ifelse((Sleep_and_Geolocation$Data_Value>=35),
          "High Risk", "Low Risk")
-print(Five_Hundred_Cities_Individuals_per_City_Level)
 
-View(Five_Hundred_Cities_Individuals_per_City)
+View(Sleep_and_Geolocation)
 
-#Grouping by Risk
+#Who is High/Low Risk
 
-High_Risk_Cities <- (Five_Hundred_Cities_Individuals_per_City$Level == "High Risk")
-Five_Hundred_Cities_Individuals_per_City_High <- 
-  Five_Hundred_Cities_Individuals_per_City[c(78,94,102,115,179,181,192,
-                                             231,285,323,324,368,371),]
+View(Sleep_and_Geolocation)
 
-View(Five_Hundred_Cities_Individuals_per_City_High)
+High_Risk_Cities <- filter(Sleep_and_Geolocation, RiskLevel == "High Risk")
 
-#Breakdown into 19, 25 City Dataframes (Alphabetically)
+View(High_Risk_Cities)
+
+Low_Risk_Cities<- filter(Sleep_and_Geolocation, RiskLevel == "Low Risk")
+
+View(Low_Risk_Cities)
+
+#Breakdown into 19, 25 City Dataframes (Alphabetically)#
 
 Visual_1 <- Five_Hundred_Cities_Individuals_per_City [1:25,]
 Visual_2 <- Five_Hundred_Cities_Individuals_per_City [26:50,]
@@ -107,7 +110,7 @@ Visual_17 <- Five_Hundred_Cities_Individuals_per_City [401:425,]
 Visual_18 <- Five_Hundred_Cities_Individuals_per_City [426:450,]
 Visual_19 <- Five_Hundred_Cities_Individuals_per_City [451:474,]
 
-#Top 10 Visualization
+#Top 10 Visualization#
 
 Visual_Top_Ten <- 
   Five_Hundred_Cities_Individuals_per_City [c("New York", "Los Angeles", "Chicago",
@@ -118,14 +121,14 @@ View(Visual_Top_Ten)
 
 str(Five_Hundred_Cities_Individuals_per_City)
 
-#High Risk Visualization
+#High Risk Visualization#
 
 Visual_High_Risk_plot<- ggplot(Five_Hundred_Cities_Individuals_per_City_High,
                                aes(CityName, y=`sum(Individuals)`, fill=Level)) + 
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90))
 
-#Basic Count Boxplots
+#Basic Count Boxplots#
 
 Visual_1_plot<- ggplot(Visual_1, aes(CityName, y=`sum(Individuals)`, fill=Level)) + 
   geom_bar(stat="identity") + 
@@ -185,24 +188,10 @@ Visual_19_plot<- ggplot(Visual_19, aes(CityName, y=`sum(Individuals)`, fill=Leve
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90))
 
-#Combining all 19 Boxplots
+#Combining all 19 Boxplots# (NEVER COMPLETED)
 
 ggarrange(Visual_1_plot, Visual_2_plot,Visual_3_plot,Visual_4_plot,Visual_5_plot,
           Visual_6_plot, Visual_7_plot,Visual_8_plot,Visual_9_plot,Visual_10_plot,
           Visual_11_plot, Visual_12_plot,Visual_13_plot,Visual_14_plot,Visual_15_plot,
           Visual_16_plot, Visual_17_plot,Visual_18_plot, Visual_19_plot)
 
-#Who is High/Low Risk
-
-Five_Hundred_Cities_Individuals_per_City$High_Risk <- 
-  (Five_Hundred_Cities_Individuals_per_City$Data_Value >= 40)
-
-View(Five_Hundred_Cities_Individuals_per_City)
-
-High_Risk_Cities <- filter(Five_Hundred_Cities_Individuals_per_City, High_Risk == "TRUE")
-
-View(High_Risk_Cities)
-
-Low_Risk_Cities<- filter(Five_Hundred_Cities_Individuals_per_City, High_Risk == "FALSE")
-
-View(Low_Risk_Cities)
