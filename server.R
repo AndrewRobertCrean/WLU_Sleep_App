@@ -1,10 +1,5 @@
+# Reading necessary packages
 library(shiny)
+library(shinydashboard)
 
-function(input, output) {
-  output$distPLot <- renderPlot({
-    x <- faithful[,2]
-    bins <-seq(min(x), max(x), length.out = input$bins + 1)
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-  })
-}
+function(input, output) { }
