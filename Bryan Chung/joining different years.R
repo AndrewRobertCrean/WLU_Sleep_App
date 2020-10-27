@@ -15,7 +15,6 @@ library(dplyr)
 finimpdam <- filter(
   impdam_comb,
   IMPAIRMENT_TYPE == c(
-  "Apparently Normal",
   "Asleep or Fatigued",
   "Blackout",
   "DUI",
