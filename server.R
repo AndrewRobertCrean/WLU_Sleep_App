@@ -8,9 +8,9 @@ library(lubridate)
 
 function(input, output) {
   
-  #reactive boxplot for Extent of Car Accident Boxplot
+  #reactive boxplot for Extent of Car Damage Boxplot
   
-  output$eofcaboxplo <- renderPlot({
+  output$carboxplot <- renderPlot({
       finimpdam %>%
         filter(
           IMPAIRMENT_TYPE %in% input$impairment
@@ -32,7 +32,7 @@ function(input, output) {
           )
         ) +
         labs(
-          title = "Driver Impairment and Extent of Damage",
+          title = "Driver Impairment and Extent of Car Damage",
           x = 'Impairment Type',
           y = "Extent of Damage"
         ) + 

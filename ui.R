@@ -28,10 +28,10 @@ dashboardPage(
         "500 Cities Sleep Health Data", tabName = "cities", icon = icon("map-marked")
         ),
       menuItem(
-        "Railroad Dispatchers' Sleep Health", tabName = "railroad", icon = icon("question-circle")
+        "Railroad Dispatchers' Sleep Health", tabName = "railroad", icon = icon("train")
         ),
       menuItem(
-        "Fatiguness on Extent of Car Accident", tabName = "eofca", icon = icon("car-crash")
+        "Fatiguness on Extent of Car Damage", tabName = "car", icon = icon("car-crash")
         ),
       menuItem(
         "About", tabName = "about", icon = icon("info-circle")
@@ -69,9 +69,9 @@ dashboardPage(
           strong("Railroad Dispatcher's Sleep Health")
         )
       ),
-      #"eofca"
+      #"car"
       tabItem(
-        tabName = "eofca",
+        tabName = "car",
         h1(
           strong("Fatigueness on Extent of Car Accident")
         ),
@@ -85,11 +85,22 @@ dashboardPage(
                 finimpdam$IMPAIRMENT_TYPE
               ),
               multiple = TRUE
+            ),
+            p(
+              "The following data has been obtained via National Highway Traffic Safety Administration Crash Data Systems. This application take an in-depth look into the Fatality Analysius Reporting System from 2014 to 2018",
+              style="font-size:13px"  
             )
           ),
           mainPanel(
             plotOutput(
-              "eofcaboxplot"
+              "carboxplot"
+            ),
+            h4(
+              strong("Remarks:")
+            ),
+            p(
+              "0 = No Damage, 2 = Minor Damage, 4 = Functional Damage, 6 = Disabling Damage",
+              style="font-size:13px"  
             )
           )
         )

@@ -136,13 +136,13 @@ impdam_comb <- rbind(
 # Filter for specifc types of Impairment Data
 finimpdam <- filter(
   impdam_comb,
-  IMPAIRMENT_TYPE == c(
+  IMPAIRMENT_TYPE %in% c(
     "Asleep or Fatigued",
     "Blackout",
     "DUI",
     "Other Physical Impairment"
   ),
-  PVEH_SEV == c(
+  PVEH_SEV %in% c(
     "0", "2", "4", "6"
   )
 ) 
