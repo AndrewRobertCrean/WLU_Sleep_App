@@ -58,9 +58,10 @@ Five_Hundred_Cities_Sleep_Geo$y <- sapply(strsplit(Five_Hundred_Cities_Sleep_Geo
                                             as.numeric(substring(x[2],first = 1, last = str_length(x[2])-1))
                                           })
 
+
 Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep_Geo %>%
   group_by(CityName) %>%
-  summarise(x = mean(x), y = mean(y))
+  summarise(lon = mean(x), lat = mean(y))
 
 View(Five_Hundred_Cities_Sleep_Geo)
 
