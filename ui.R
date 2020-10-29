@@ -74,6 +74,24 @@ dashboardPage(
         tabName = "eofca",
         h1(
           strong("Fatigueness on Extent of Car Accident")
+        ),
+        br(),
+        fluidRow(
+          sidebarPanel(
+            selectInput(
+              "impairment" ,
+              label = "Select Driver Impairment Type(s):" ,
+              choices = unique(
+                finimpdam$IMPAIRMENT_TYPE
+              ),
+              multiple = TRUE
+            )
+          ),
+          mainPanel(
+            plotOutput(
+              "eofcaboxplot"
+            )
+          )
         )
       ),
       #"about"

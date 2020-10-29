@@ -141,6 +141,9 @@ finimpdam <- filter(
     "Blackout",
     "DUI",
     "Other Physical Impairment"
+  ),
+  PVEH_SEV == c(
+    "0", "2", "4", "6"
   )
 ) 
 
