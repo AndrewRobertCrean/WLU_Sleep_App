@@ -3,16 +3,12 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 library(stringr)
-?leaflet
 
 source("~/Sleep_App/Andrew Crean/500 Cities Cleaning.R")
 
-str(Five_Hundred_Cities_Sleep_Geo)
+pal2 <- colorQuantile("RdYlBu", reverse = TRUE, Sleep_and_Geolocation$Data_Value, n = 10)
 
-pal <- colorFactor(c("red", "green"), domain = c("Low Risk", "High Risk"))
-pal2 <- colorQuantile("RdYlBu", reverse = FALSE, Sleep_and_Geolocation$Data_Value, n = 10)
-
-Interactive_Plot <- leaflet(data = Sleep_and_Geolocation_Clean)%>%
+leaflet(data = Sleep_and_Geolocation_Clean)%>%
   addProviderTiles(providers$Stamen.Toner)%>%
   addCircles(label = Sleep_and_Geolocation_Clean$CityName, 
              popup = paste("", Sleep_and_Geolocation_Clean$CityName, "<br>",

@@ -35,7 +35,7 @@ Five_Hundred_Cities_Sleep_Grouped <- Five_Hundred_Cities_Sleep %>%
 
 #Adding Back GeoLocation#
   #Part One: Cleaning the Geolocation Data#
-Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep[,c("CityName", "GeoLocation")]
+Five_Hundred_Cities_Sleep_Geo <- Five_Hundred_Cities_Sleep[,c("CityName", "GeoLocation", "Data_Value")]
 
 Five_Hundred_Cities_Sleep_Geo$lat <- sapply(strsplit(Five_Hundred_Cities_Sleep_Geo$GeoLocation, ","),
                                           function(x) {
