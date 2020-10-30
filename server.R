@@ -11,10 +11,9 @@ library(leaflet)
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("~/Sleep_App/Andrew Crean/500 Cities Cleaning.R")
 
+#500 Cities
 
-function(input, output) {
-  
-  #500 Cities
+function(input, output, session) {
   output$Final_Leaflet <- leaflet({ Final_Leaflet
   })
   
