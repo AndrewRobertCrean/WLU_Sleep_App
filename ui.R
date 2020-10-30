@@ -63,8 +63,8 @@ dashboardPage(
         ),
         fluidRow(
           mainPanel(
-            plotOutput(
-              "citiesmap"
+            leafletOutput(
+              "Final_Leaflet"
             )
           )
         )

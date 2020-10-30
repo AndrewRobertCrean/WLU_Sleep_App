@@ -8,7 +8,7 @@ source("~/Sleep_App/Andrew Crean/500 Cities Cleaning.R")
 
 pal2 <- colorQuantile("RdYlBu", reverse = TRUE, Sleep_and_Geolocation$Data_Value, n = 10)
 
-leaflet(data = Sleep_and_Geolocation_Clean)%>%
+Final_Leaflet <- leaflet(data = Sleep_and_Geolocation_Clean)%>%
   addProviderTiles(providers$Stamen.Toner)%>%
   addCircleMarkers(label = Sleep_and_Geolocation_Clean$CityName, 
              popup = paste("", Sleep_and_Geolocation_Clean$CityName, "<br>",
