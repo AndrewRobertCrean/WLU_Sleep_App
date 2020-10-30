@@ -1,7 +1,11 @@
 library(leaflet)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(stringr)
 ?leaflet
 
-source("500 Cities Cleaning.R")
+source("~/Sleep_App/Andrew Crean/500 Cities Cleaning.R")
 
 str(Five_Hundred_Cities_Sleep_Geo)
 
