@@ -5,7 +5,7 @@ library(ggplot2)
 library(tidyverse)
 library(dplyr)
 library(lubridate)
-
+library(leaflet)
 
 #dashboard outline for the app
 dashboardPage(
@@ -60,6 +60,13 @@ dashboardPage(
         tabName = "cities",
         h1(
           strong("500 Cities Sleep Health Data")
+        ),
+        fluidRow(
+          mainPanel(
+            plotOutput(
+              "citiesmap"
+            )
+          )
         )
       ),
       #"railroad"
