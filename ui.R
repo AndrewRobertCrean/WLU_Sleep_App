@@ -11,8 +11,12 @@ library(stringr)
 #Pull in requried data frames
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
+<<<<<<< HEAD
 source("Interactive_Leaflet.R")
 
+=======
+source("/Interactive_Leaflet.R")
+>>>>>>> 98724efb669f4dd5f5c3eec974d9bbc3599195b3
 
 #dashboard outline for the app
 dashboardPage(
