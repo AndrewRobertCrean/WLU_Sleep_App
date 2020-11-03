@@ -6,11 +6,15 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(leaflet)
+library(stringr)
 
 #Pull in requried data frames
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
+<<<<<<< HEAD
 source("/Interactive_Leaflet.R")
+=======
+>>>>>>> 92d71a4f869a409cf4fd6baac121aed21bf22e5d
 
 #dashboard outline for the app
 dashboardPage(
@@ -69,7 +73,7 @@ dashboardPage(
         fluidRow(
           mainPanel(
             leafletOutput(
-              "Final_Leaflet"
+              "citiesLeaflet"
             )
           )
         )

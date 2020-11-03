@@ -6,16 +6,24 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(leaflet)
+library(stringr)
 
 #Pull in requried data frames
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
+<<<<<<< HEAD
 source("/Interactive_Leaflet.R")
+=======
+source("Interactive_Leaflet.R")
+
+>>>>>>> 92d71a4f869a409cf4fd6baac121aed21bf22e5d
 
 #500 Cities
 
 function(input, output, session) {
-  output$Final_Leaflet <- renderLeaflet({ Final_Leaflet
+
+  output$citiesLeaflet <- renderLeaflet({ 
+    Final_Leaflet
   })
 
   #reactive boxplot for Extent of Car Damage Boxplot
@@ -51,7 +59,7 @@ function(input, output, session) {
       ) +
       ylim(
         0, 
-        8
+        6
       )
   })
   
