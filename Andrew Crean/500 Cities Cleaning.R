@@ -60,11 +60,6 @@ Sleep_and_Geolocation <- left_join(Five_Hundred_Cities_Individuals_per_City,
 ##Organized Sleep
 Sleep_and_Geolocation_Clean <- Sleep_and_Geolocation[c(1,4,5,2,3)]
 View(Sleep_and_Geolocation_Clean)
-<<<<<<< HEAD
-=======
-
-#"Risk Level" Command#
->>>>>>> 4001e240d9bab6b059ee76424e327b2151954293
 
 #"Risk Level" Command#
 Sleep_and_Geolocation_Clean$RiskLevel <-
