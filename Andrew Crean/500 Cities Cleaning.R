@@ -7,7 +7,7 @@ library(stringr)
 
 #Piping for Sleep Variable#
 
-FiveHundredCitiesCompressed <- readRDS("~/Sleep_App/Andrew Crean/FiveHundredCitiesCompressed.RDS")
+FiveHundredCitiesCompressed <- readRDS("Andrew Crean/FiveHundredCitiesCompressed.RDS")
 
 Five_Hundred_Cities_Sleep_na <- FiveHundredCitiesCompressed %>%
   select(Year, StateAbbr, CityName, Measure, Data_Value, PopulationCount, GeoLocation) %>% 

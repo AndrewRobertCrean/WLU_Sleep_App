@@ -6,6 +6,7 @@ library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(leaflet)
+library(stringr)
 
 #dashboard outline for the app
 dashboardPage(
