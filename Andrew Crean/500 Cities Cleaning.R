@@ -59,8 +59,7 @@ Sleep_and_Geolocation <- left_join(Five_Hundred_Cities_Individuals_per_City,
 
 #"Risk Level" Command#
 
-Sleep_and_Geolocation_Clean$RiskLevel <- 
-  ifelse((Sleep_and_Geolocation$Data_Value>=35), "High Risk", "Low Risk")
+if_else(Sleep_and_Geolocation_Clean$Data_Value >= 35, "High Risk", "Low Risk")
 
 ##Organized Sleep
 Sleep_and_Geolocation_Clean <- Sleep_and_Geolocation[c(1,4,5,2,3)]
