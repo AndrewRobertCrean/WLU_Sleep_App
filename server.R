@@ -14,9 +14,9 @@ source("~/Sleep_App/Andrew Crean/500 Cities Cleaning.R")
 #500 Cities
 
 function(input, output, session) {
-  output$Final_Leaflet <- leaflet({ Final_Leaflet
+  output$Final_Leaflet <- renderLeaflet({ Final_Leaflet
   })
-  
+
   #reactive boxplot for Extent of Car Damage Boxplot
   
   output$carboxplot <- renderPlot({
