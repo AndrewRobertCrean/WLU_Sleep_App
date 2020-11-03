@@ -15,13 +15,9 @@ source("Andrew Crean/500 Cities Cleaning.R")
 #500 Cities
 
 function(input, output, session) {
-<<<<<<< HEAD
-  
- output$Final_Leaflet <- renderLeaflet({
-    'Final_Leaflet'
-=======
-  output$Final_Leaflet <- renderLeaflet({ Final_Leaflet
->>>>>>> eb9816d1c346298d6ff6362ccba5f51012724478
+
+  output$citiesLeaflet <- renderLeaflet({ 
+    Final_Leaflet
   })
 
   #reactive boxplot for Extent of Car Damage Boxplot
