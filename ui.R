@@ -12,11 +12,15 @@ library(stringr)
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
 <<<<<<< HEAD
+<<<<<<< HEAD
 source("Interactive_Leaflet.R")
 
 =======
 source("/Interactive_Leaflet.R")
 >>>>>>> 98724efb669f4dd5f5c3eec974d9bbc3599195b3
+=======
+source("Interactive_Leaflet.R")
+>>>>>>> c2910c2ca731ec518eb07fb5ae4afe74260ad191
 
 #dashboard outline for the app
 dashboardPage(
