@@ -175,5 +175,5 @@ finimpdam %>%
   ) +
   ylim(
     0, 
-    8
+    6
   )
