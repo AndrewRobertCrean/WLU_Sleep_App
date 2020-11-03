@@ -69,7 +69,7 @@ dashboardPage(
         fluidRow(
           mainPanel(
             leafletOutput(
-              "Final_Leaflet"
+              "citiesLeaflet"
             )
           )
         )

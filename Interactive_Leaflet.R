@@ -4,7 +4,7 @@ library(tidyverse)
 library(ggplot2)
 library(stringr)
 
-source("~/Sleep_App/Andrew Crean/500 Cities Cleaning.R")
+source("Andrew Crean/500 Cities Cleaning.R")
 
 pal2 <- colorQuantile("RdYlBu", reverse = TRUE, Sleep_and_Geolocation$Data_Value, n = 10)
 
