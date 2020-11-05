@@ -22,7 +22,7 @@ dashboardPage(
   dashboardHeader(
     title = 'WLU Sleep App',
     titleWidth = 300
-  ),
+  ), 
   
   # Dashboard sidebar menu
 
@@ -60,6 +60,7 @@ dashboardPage(
         h1(
           strong("Home")
         )
+      , img(src='CDC Sleep Requirement.png', align = "center")
       ),
       
       #"cities"
