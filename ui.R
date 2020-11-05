@@ -1,26 +1,34 @@
-library(shiny)
+#####MIDHA'S VERY bad attempts at a basic page
 
-source("sidebar.R")
-source("mainpanel.R")
+library(shiny)
+library(ggplot2)
 
 fluidPage(
-  titlePanel("Old Faithful Geyser Data"),
-  sidebarLayout(sidebar, mainpanel)
-
-##About Sleep homepage#  
   
-#tabs of web app pages in the side bar#
-
-##information brochure on the right side#
-
-##Citations or sources used for data##
-
-##500 cities geospatial map data##
-
-##Railroad dispatch workers data with correlational graphs##
-  #have a grapgh on the right#
-    #have a drop down menu/checklist of six sleep health variables on the left of the graph#
-      
-
-
-##Accident reports due to drowsy driving page## 
+  #title for the page
+  titlePanel("Railroad Dispatcher's Sleep and Health Data"),
+  
+  #generate a row aith sidebar
+  sidebarLayout(
+  
+    #define the sidebar with one input
+    sidebarPanel(
+      selectInput("sleephealthvariable", "Choose Sleep Health variable:",
+                  choices = colnames(new_tidy_table)),
+      checkboxGroupInput("demographic", "Choose demographic:",
+                  choices = colnames(Age),
+                  selected = NULL,
+                  inline = FALSE),
+      hr(),
+      helpText("Data from Railroad Dispatcher survery year __ courtesy of__")
+    ),
+  
+  #Create a spot for barplot
+  mainPanel(
+    plotOutput("sleephealthplot"),
+    position = c("left"),
+    fluid = TRUE
+    
+  )
+)
+)
