@@ -63,4 +63,4 @@ View(Sleep_and_Geolocation_Clean)
 
 #"Risk Level" Command#
 Sleep_and_Geolocation_Clean$RiskLevel <-
-  print(if_else(Sleep_and_Geolocation_Clean$Data_Value >= 35, "High Risk", "Low Risk"))
+  print(if_else(Sleep_and_Geolocation_Clean$Data_Value >= 35.54572, "High Risk", "Low Risk"))

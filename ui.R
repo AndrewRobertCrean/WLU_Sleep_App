@@ -72,10 +72,13 @@ dashboardPage(
           mainPanel(
             leafletOutput(
               "citiesLeaflet"
-            )
+            ), br(),
+            p("The 500 Cities dataset was established by the United States Center for Disease Control and Prevention in 2015, collaborating with The Robert Wood Johnson Foundation. This dataset was created to track 55 chronic illnesses, including sleep deprivation, within U.S. generating a composite view of the health of our nation. States have a range of data points available, spanning from 1 city in states like Vermont to 121 in California. Within the following map, 474 cities with sleep health data available are represented. In the above visualization, “High Risk” cities are considered those who meet or exceed the National average of 35.54562% of individuals reporting poor sleep health.",
+                 style="font-size:13px")
           )
         )
       ),
+      
       #"railroad"
       tabItem(
         tabName = "railroad",
