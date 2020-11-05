@@ -131,12 +131,12 @@ dashboardPage(
         br(),
         br(),
         p(
-          "Paragraph 1 of About",
+          "The creator of this Shiny application consists of Midha Ahmad '21, Bryan Chung '22 and Andrew Crean '22. Midha and Bryan are both Neuroscience major and Andrew is Biology major at Washington and Lee University.",
           style="font-size:24px"
           ),
         br(),
         p(
-          "Paragraph 2 of About",
+          "Thank you for vising our website. We hope our work has offered you a deeper insight into the importance of sleep.",
           style="font-size:24px"
           ),
         br(),
