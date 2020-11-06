@@ -122,12 +122,30 @@ dashboardPage(
             plotOutput(
               "carboxplot"
             ),
+            br(),
             plotOutput(
               "cardenplot"
             )
           )
         ),
-        br()
+        br(),
+        fluidRow(
+          sidebarPanel(
+            h4(
+              strong("ANOVA")
+            ),
+            p(
+              "Conducted ANOVA test",
+              style="font-size:13px"  
+            ),
+            br()
+          ),
+          mainPanel(
+            valueBoxOutput("df"),
+            valueBoxOutput("fvaluebox"),
+            valueBoxOutput("pvaluebox")
+          )
+        )
       ),
       #"about"
       tabItem(

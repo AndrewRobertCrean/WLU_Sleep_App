@@ -211,7 +211,23 @@ impdam_comb %>%
 
 #Here, I try to do ANOVA on the same data
 
+fit   <- aov(PVEH_SEV ~ IMPAIRMENT_TYPE, data = finimpdam)
+ANOVA <- summary(fit)
 
 #Here, lets make another plot
 
-summary(finimpdam )
+finimpdam %>%
+  ggplot(
+    aes(
+      PVEH_SEV,
+      fill = IMPAIRMENT_TYPE
+    )
+  ) +
+  geom_density(
+    alpha =.2
+  ) +
+  labs(
+    title = "Driver Impairment and Extent of Car Damage",
+    x = "Extent of Car Damage",
+    y = "Density" 
+    ) 

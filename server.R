@@ -82,4 +82,25 @@ function(input, output, session) {
     
   })
   
+  output$pvaluebox <- renderValueBox({
+    valueBox(
+      "4e-07", "P-Value", icon = icon("car-crash"),
+      color = "aqua"
+    )
+  })
+  
+  output$fvaluebox <- renderValueBox({
+    valueBox(
+      "10.95", "F-Value", icon = icon("car-crash"),
+      color = "blue"
+    )
+  })
+  
+  output$df <- renderValueBox({
+    valueBox(
+      "3", "Degrees of Freedom", icon = icon("car-crash"),
+      color = "light-blue"
+    )
+  })
+  
 }
