@@ -35,7 +35,7 @@ function(input, output, session) {
           PVEH_SEV,
           fill = IMPAIRMENT_TYPE
         )
-      )+
+      ) +
       geom_boxplot(
         alpha = 0.9
       ) +
@@ -57,6 +57,26 @@ function(input, output, session) {
         0, 
         6
       )
+  })
+  
+  output$cardenplot <- renderPlot({
+    
+    finimpdam %>%
+      ggplot(
+        aes(
+          PVEH_SEV,
+          fill = IMPAIRMENT_TYPE
+        )
+      ) +
+      geom_density(
+        alpha =.2
+        ) +
+      labs(
+        title = "Driver Impairment and Extent of Car Damage",
+        x = "Extent of Damage",
+        y = NULL
+      ) 
+    
   })
   
 }
