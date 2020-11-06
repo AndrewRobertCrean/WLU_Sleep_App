@@ -1,6 +1,5 @@
 library(dplyr)
 library(tidyverse)
-library(ggpubr)
 
 # Pull in raw data and name it
 
@@ -181,17 +180,6 @@ finimpdam %>%
   )
 
 #Here, I try to do ANOVA on the same data
-car.aov <- aov(
-  IMPAIRMENT_TYPE ~ PVEH_SEV,
-  finimpdam
-)
-summary(car.aov)
 
-#Here, lets make a plot
-finimpdam %>%
-  ggplot(
-    aes(
-      IMPAIRMENT_TYPE,
-      PVEH_SEV
-    )
-  ) 
+
+#Here, lets make another plot
