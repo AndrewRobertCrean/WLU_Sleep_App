@@ -22,14 +22,21 @@ untidyimp <- finimpdam %>%
       na.rm = FALSE
     )
   
-finimpdam %>%
-  ggplot(
-    aes(
-      PVEH_SEV,
-      fill = IMPAIRMENT_TYPE
+  finimpdam %>%
+    ggplot(
+      aes(
+        PVEH_SEV,
+        fill = IMPAIRMENT_TYPE
+      )
+    ) +
+    geom_density(
+      alpha =.5
+    ) +
+    labs(
+      title = "Driver Impairment and Extent of Car Damage",
+      x = 'Impairment Type',
+      y = "Extent of Damage"
     )
-  ) +
-  geom_density(alpha =.5)
   
   mean(untidyimp$DUI, na.rm = TRUE)
   mean(untidyimp$`Asleep or Fatigued`, na.rm = TRUE)
