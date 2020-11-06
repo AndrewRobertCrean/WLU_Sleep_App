@@ -94,9 +94,6 @@ dashboardPage(
           strong("Fatigueness on Extent of Car Damage during an Accident")
         ),
         br(),
-        h3(
-          strong("Boxplot")
-        ),
         fluidRow(
           sidebarPanel(
             selectInput(
@@ -110,6 +107,14 @@ dashboardPage(
             ),
             p(
               "The following data has been obtained via National Highway Traffic Safety Administration Crash Data Systems. This application take an in-depth look into the Fatality Analysius Reporting System from 2014 to 2018",
+              style="font-size:13px"  
+            ),
+            br(),
+            h4(
+              strong("Remarks:")
+            ),
+            p(
+              "0 = No Damage, 2 = Minor Damage, 4 = Functional Damage, 6 = Disabling Damage",
               style="font-size:13px"  
             )
           ),
@@ -117,48 +122,12 @@ dashboardPage(
             plotOutput(
               "carboxplot"
             ),
-            h4(
-              strong("Remarks:")
-            ),
-            p(
-              "0 = No Damage, 2 = Minor Damage, 4 = Functional Damage, 6 = Disabling Damage",
-              style="font-size:13px"  
-            )
-          )
-        ),
-        br(),
-        h3(
-          strong("Density Plot")
-        ),
-        fluidRow(
-          sidebarPanel(
-            selectInput(
-              "impairment" ,
-              label = "Select Driver Impairment Type(s):" ,
-              choices = unique(
-                finimpdam$IMPAIRMENT_TYPE
-              ),
-              selected = c( 'DUI', 'Asleep or Fatigued', 'Blackout', 'Other Physical Impairment'),
-              multiple = TRUE
-            ),
-            p(
-              "The following data has been obtained via National Highway Traffic Safety Administration Crash Data Systems. This application take an in-depth look into the Fatality Analysius Reporting System from 2014 to 2018",
-              style="font-size:13px"  
-            )
-          ),
-          mainPanel(
             plotOutput(
               "cardenplot"
-            ),
-            h4(
-              strong("Remarks:")
-            ),
-            p(
-              "0 = No Damage, 2 = Minor Damage, 4 = Functional Damage, 6 = Disabling Damage",
-              style="font-size:13px"  
             )
           )
-        )
+        ),
+        br()
       ),
       #"about"
       tabItem(

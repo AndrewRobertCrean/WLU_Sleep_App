@@ -46,7 +46,7 @@ function(input, output, session) {
         )
       ) +
       labs(
-        title = "Driver Impairment and Extent of Car Damage",
+        title = "Box Plot",
         x = 'Impairment Type',
         y = "Extent of Damage"
       ) + 
@@ -62,6 +62,9 @@ function(input, output, session) {
   output$cardenplot <- renderPlot({
     
     finimpdam %>%
+      filter(
+        IMPAIRMENT_TYPE %in% input$impairment
+      ) %>%
       ggplot(
         aes(
           PVEH_SEV,
@@ -72,9 +75,9 @@ function(input, output, session) {
         alpha =.2
         ) +
       labs(
-        title = "Driver Impairment and Extent of Car Damage",
-        x = "Extent of Damage",
-        y = NULL
+        title = "Density Plot",
+        x = "Extent of Car Damage",
+        y = "Density"
       ) 
     
   })
