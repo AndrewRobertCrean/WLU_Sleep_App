@@ -16,7 +16,8 @@ source("Interactive_Leaflet.R")
 #500 Cities
 
 function(input, output, session) {
-
+  
+  #heat map of 500 cities sleep health
   output$citiesLeaflet <- renderLeaflet({ 
     Final_Leaflet
   })
