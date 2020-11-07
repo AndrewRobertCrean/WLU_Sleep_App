@@ -85,7 +85,7 @@ function(input, output, session) {
   output$summary <- renderPrint({
     
     fit   <- aov(PVEH_SEV ~ IMPAIRMENT_TYPE, data = finimpdam)
-    ANOVA <- summary(fit)
+    summary(fit)
     
   })
   
