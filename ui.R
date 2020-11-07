@@ -9,7 +9,7 @@ library(leaflet)
 library(stringr)
 
 #Pull in requried data frames
-source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
+source("Driver Impairment on Extent of Car Damage During an Accident-BC/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
 source("Interactive_Leaflet.R")
 
@@ -132,18 +132,18 @@ dashboardPage(
         fluidRow(
           sidebarPanel(
             h4(
-              strong("ANOVA")
+              strong("One-way ANOVA")
             ),
             p(
-              "Conducted ANOVA test",
+              "",
               style="font-size:13px"  
             ),
             br()
           ),
           mainPanel(
-            valueBoxOutput("df"),
-            valueBoxOutput("fvaluebox"),
-            valueBoxOutput("pvaluebox")
+            verbatimTextOutput(
+              "summary"
+              )
           )
         )
       ),
