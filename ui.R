@@ -59,8 +59,12 @@ dashboardPage(
         tabName = "home",
         h1(
           strong("Home")
-        )
-      , img(src='CDC Sleep Requirement.png', align = "center")
+        ),
+      p("A third of US adults report that they usually get less than the recommended amount of sleep. Not getting enough sleep is linked with many chronic diseases and conditions—such as type 2 diabetes, heart disease, obesity, and depression—that threaten our nation’s health. Not getting enough sleep can lead to motor vehicle crashes and mistakes at work, which cause a lot of injury and disability each year. Getting enough sleep is not a luxury—it is something people need for good health. Sleep disorders can also increase a person’s risk of health problems. However, these disorders can be diagnosed and treated, bringing relief to those who suffer from them."),
+      br(),
+      img(src='CDC Sleep Requirement.png', align = "center", height= "75%", width= "75%"),
+      br(),
+      p("“CDC - Sleep Home Page - Sleep and Sleep Disorders.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 15 Apr. 2020, www.cdc.gov/sleep/index.html." )
       ),
       
       #"cities"
