@@ -95,7 +95,7 @@ dashboardPage(
       tabItem(
         tabName = "car",
         h1(
-          strong("Fatigueness on Extent of Car Accident")
+          strong("Fatigueness on Extent of Car Damage during an Accident")
         ),
         br(),
         fluidRow(
@@ -106,17 +106,14 @@ dashboardPage(
               choices = unique(
                 finimpdam$IMPAIRMENT_TYPE
               ),
+              selected = c( 'DUI', 'Asleep or Fatigued', 'Blackout', 'Other Physical Impairment'),
               multiple = TRUE
             ),
             p(
               "The following data has been obtained via National Highway Traffic Safety Administration Crash Data Systems. This application take an in-depth look into the Fatality Analysius Reporting System from 2014 to 2018",
               style="font-size:13px"  
-            )
-          ),
-          mainPanel(
-            plotOutput(
-              "carboxplot"
             ),
+            br(),
             h4(
               strong("Remarks:")
             ),
@@ -124,6 +121,33 @@ dashboardPage(
               "0 = No Damage, 2 = Minor Damage, 4 = Functional Damage, 6 = Disabling Damage",
               style="font-size:13px"  
             )
+          ),
+          mainPanel(
+            plotOutput(
+              "carboxplot"
+            ),
+            br(),
+            plotOutput(
+              "cardenplot"
+            )
+          )
+        ),
+        br(),
+        fluidRow(
+          sidebarPanel(
+            h4(
+              strong("One-way ANOVA")
+            ),
+            p(
+              "",
+              style="font-size:13px"  
+            ),
+            br()
+          ),
+          mainPanel(
+            verbatimTextOutput(
+              "summary"
+              )
           )
         )
       ),
