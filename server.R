@@ -18,7 +18,8 @@ source("Midha's data/Railroad data script.R")
 #500 Cities
 
 function(input, output, session) {
-
+  
+  #heat map of 500 cities sleep health
   output$citiesLeaflet <- renderLeaflet({ 
     Final_Leaflet
   })
@@ -56,7 +57,7 @@ function(input, output, session) {
           PVEH_SEV,
           fill = IMPAIRMENT_TYPE
         )
-      )+
+      ) +
       geom_boxplot(
         alpha = 0.9
       ) +
@@ -67,7 +68,7 @@ function(input, output, session) {
         )
       ) +
       labs(
-        title = "Driver Impairment and Extent of Car Damage",
+        title = "Box Plot",
         x = 'Impairment Type',
         y = "Extent of Damage"
       ) + 
@@ -84,3 +85,38 @@ function(input, output, session) {
 
     
   
+<<<<<<< HEAD
+=======
+  output$cardenplot <- renderPlot({
+    
+    finimpdam %>%
+      filter(
+        IMPAIRMENT_TYPE %in% input$impairment
+      ) %>%
+      ggplot(
+        aes(
+          PVEH_SEV,
+          fill = IMPAIRMENT_TYPE
+        )
+      ) +
+      geom_density(
+        alpha =.2
+        ) +
+      labs(
+        title = "Density Plot",
+        x = "Extent of Car Damage",
+        y = "Density"
+      ) 
+    
+  })
+  
+  output$summary <- renderPrint({
+    
+    fit   <- aov(PVEH_SEV ~ IMPAIRMENT_TYPE, data = finimpdam)
+    summary(fit)
+    
+  })
+  
+  
+}
+>>>>>>> 2d7e8b19e9bbf8d2de26f3c93bcb3c903e64837f

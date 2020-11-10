@@ -24,7 +24,7 @@ dashboardPage(
   dashboardHeader(
     title = 'WLU Sleep App',
     titleWidth = 300
-  ),
+  ), 
   
   # Dashboard sidebar menu
 
@@ -61,7 +61,13 @@ dashboardPage(
         tabName = "home",
         h1(
           strong("Home")
-        )
+        ),
+      p("A third of US adults report that they usually get less than the recommended amount of sleep. Not getting enough sleep is linked with many chronic diseases and conditions—such as type 2 diabetes, heart disease, obesity, and depression—that threaten our nation’s health. Not getting enough sleep can lead to motor vehicle crashes and mistakes at work, which cause a lot of injury and disability each year. Getting enough sleep is not a luxury—it is something people need for good health. Sleep disorders can also increase a person’s risk of health problems. However, these disorders can be diagnosed and treated, bringing relief to those who suffer from them.",
+        style="font-size:18px"),
+      br(),
+      img(src='CDC Sleep Requirement.png', align = "center", height= "85%", width= "85%"),
+      br(),
+      p("“CDC - Sleep Home Page - Sleep and Sleep Disorders.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 15 Apr. 2020, www.cdc.gov/sleep/index.html." )
       ),
       
       #"cities"
@@ -74,10 +80,13 @@ dashboardPage(
           mainPanel(
             leafletOutput(
               "citiesLeaflet"
-            )
+            ), br(),
+            p("The 500 Cities dataset was established by the United States Center for Disease Control and Prevention in 2015, collaborating with The Robert Wood Johnson Foundation. This dataset was created to track 55 chronic illnesses, including sleep deprivation, within U.S. generating a composite view of the health of our nation. States have a range of data points available, spanning from 1 city in states like Vermont to 121 in California. Within the following map, 474 cities with sleep health data available are represented. In the above visualization, “High Risk” cities are considered those who meet or exceed the National average of 35.54562% of individuals reporting poor sleep health.",
+                 style="font-size:13px")
           )
         )
       ),
+      
       #"railroad"
       tabItem(
         tabName = "railroad",
@@ -123,7 +132,7 @@ dashboardPage(
       tabItem(
         tabName = "car",
         h1(
-          strong("Fatigueness on Extent of Car Accident")
+          strong("Fatigueness on Extent of Car Damage during an Accident")
         ),
         br(),
         fluidRow(
@@ -134,17 +143,14 @@ dashboardPage(
               choices = unique(
                 finimpdam$IMPAIRMENT_TYPE
               ),
+              selected = c( 'DUI', 'Asleep or Fatigued', 'Blackout', 'Other Physical Impairment'),
               multiple = TRUE
             ),
             p(
               "The following data has been obtained via National Highway Traffic Safety Administration Crash Data Systems. This application take an in-depth look into the Fatality Analysius Reporting System from 2014 to 2018",
               style="font-size:13px"  
-            )
-          ),
-          mainPanel(
-            plotOutput(
-              "carboxplot"
             ),
+            br(),
             h4(
               strong("Remarks:")
             ),
@@ -152,6 +158,33 @@ dashboardPage(
               "0 = No Damage, 2 = Minor Damage, 4 = Functional Damage, 6 = Disabling Damage",
               style="font-size:13px"  
             )
+          ),
+          mainPanel(
+            plotOutput(
+              "carboxplot"
+            ),
+            br(),
+            plotOutput(
+              "cardenplot"
+            )
+          )
+        ),
+        br(),
+        fluidRow(
+          sidebarPanel(
+            h4(
+              strong("One-way ANOVA")
+            ),
+            p(
+              "",
+              style="font-size:13px"  
+            ),
+            br()
+          ),
+          mainPanel(
+            verbatimTextOutput(
+              "summary"
+              )
           )
         )
       ),
