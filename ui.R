@@ -100,7 +100,7 @@ dashboardPage(
             width = 7,
             box(
               img(
-                src = 'dogs_sleeping.jpg',
+                src = 'dog_sleeping.jpg',
                 width = "100%"
               )
             )
