@@ -212,7 +212,7 @@ impdam_comb %>%
 #Here, I try to do ANOVA on the same data
 
 fit   <- aov(PVEH_SEV ~ IMPAIRMENT_TYPE, data = finimpdam)
-ANOVA <- summary(fit)
+summary(fit)
 
 #Here, lets make another plot
 
