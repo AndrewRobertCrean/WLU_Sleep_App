@@ -4,7 +4,7 @@ library(ggplot2)
 
 ##read file
 
-Dispatchers_Background_Data_2 <- read.csv("~/R/Sleep Health App/Midha's data/Dispatchers_Background_Data 2.csv")
+Dispatchers_Background_Data_2 <- read.csv("Midha's data/Dispatchers_Background_Data 2.csv")
 
 ##filter out particpants with diagnosed sleep disorders so they are not included##
 no_sleep_disorder <- filter(Dispatchers_Background_Data_2, Diagnosed_Sleep_disorder > 1)
