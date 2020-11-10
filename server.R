@@ -17,7 +17,7 @@ source("Midha's data/Railroad data script.R")
 
 #500 Cities
 
-function(input, output, session) {
+function(input, output) {
   
   #heat map of 500 cities sleep health
   output$citiesLeaflet <- renderLeaflet({ 
@@ -84,10 +84,7 @@ function(input, output, session) {
         6
       )
   })
-  
 
-
-  
   output$cardenplot <- renderPlot({
     
     finimpdam %>%
@@ -118,6 +115,6 @@ function(input, output, session) {
     
   })
   
-  
+}
 
 
