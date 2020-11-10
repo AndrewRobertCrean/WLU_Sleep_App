@@ -127,7 +127,7 @@ dashboardPage(
             
             ,
             
-            #Create a spot for scatterplot and barplot
+            #Create a spot for scatterplot 
             mainPanel(
               plotOutput("sleephealthplot"),
               position = c("left"),
@@ -135,7 +135,31 @@ dashboardPage(
               
             )
           )
+        ),
+        
+        br(),
+        fluidRow(
+          #generate a barplot
+          
+          sidebarLayout(
+            sidebarpanel(
+              selectInput("x_axis_bargraph", "Choose Sleep Health variable:",
+                          choices = colnames(boxplot_variables)),
+              mainPanel(
+                plotOutput("bargraph"),
+                position = c("left"),
+                fluid = TRUE
+              )
+            )
+          )
+          
+          
         )
+        
+  
+        
+        
+              
       ),
       
       

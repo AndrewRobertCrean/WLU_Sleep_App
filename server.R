@@ -41,6 +41,10 @@ function(input, output, session) {
     
     
     #add a barplot - NEED TO GET THIS FIXED 
+    output$bargraph <- renderPlot({
+      sleephealth_agg <- aggregate(boxplot_variables[,input$x_axis_bargraph], ~ sleep_loss_stress, boxplot_variables, sum)
+      barplot(boxplot_variables[,2], names.arg = boxplot_variables$sleep_loss_stress)
+    })
     
  
     
