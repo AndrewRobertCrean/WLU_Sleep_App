@@ -1,3 +1,5 @@
+
+
 # Reading necessary packages
 library(shiny)
 library(shinydashboard)
@@ -12,7 +14,7 @@ library(stringr)
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
 source("Interactive_Leaflet.R")
-
+source("Midha's data/Railroad data script.R")
 
 #dashboard outline for the app
 dashboardPage(
@@ -101,9 +103,43 @@ dashboardPage(
       tabItem(
         tabName = "railroad",
         h1(
-          strong("Railroad Dispatcher's Sleep Health")
+          strong("Railroad Dispatcher's Sleep and Health Data")
+        ),
+        br(),
+        fluidRow(
+          
+          
+          #generate a row aith sidebar
+          sidebarLayout(
+            
+            #define the sidebar with multiple input
+            sidebarPanel(
+              selectInput("x_axis_input", "Choose Sleep Health variable:",
+                          choices = colnames(boxplot_variables)
+                          ),
+              selectInput("y_axis_input", "Choose outcome variable:", 
+                          choices = colnames(boxplot_variables)),
+              hr(),
+              helpText("Data from Railroad Dispatcher survery year __ courtesy of__"))  
+            
+            
+            ,
+            
+            #Create a spot for scatterplot and barplot
+            mainPanel(
+              plotOutput("sleephealthplot"),
+              position = c("left"),
+              fluid = TRUE
+              
+            )
+          )
         )
       ),
+      
+      
+      
+     
+      
       #"car"
       tabItem(
         tabName = "car",
@@ -188,13 +224,13 @@ dashboardPage(
           ),
         br(),
         p(
-          "Midha Ahamad, K. Bryan Chung, Andrew Crean",
+          "Midha Ahmad, K. Bryan Chung, Andrew Crean",
           style="font-size:24px"
           ),
         br()
       )
     )
   )
+
 )
 
-  

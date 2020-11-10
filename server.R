@@ -1,3 +1,4 @@
+
 # Reading necessary packages
 library(shiny)
 library(shinydashboard)
@@ -12,6 +13,7 @@ library(stringr)
 source("Bryan Chung/Driver Impairment and Extent of Damage final.R")
 source("Andrew Crean/500 Cities Cleaning.R")
 source("Interactive_Leaflet.R")
+source("Midha's data/Railroad data script.R")
 
 #500 Cities
 
@@ -22,6 +24,26 @@ function(input, output, session) {
     Final_Leaflet
   })
 
+  #Railroad Data
+  
+  #Define a server for the shiny app
+  #already done
+    
+    #fill in the blank page with the graph
+    output$sleephealthplot <- renderPlot({
+      
+      #render a correlation graph
+
+        ggplot(boxplot_variables, aes_string(input$x_axis_input, input$y_axis_input))                            +
+        geom_count(color = "blue", alpha = 0.2)
+        
+    })
+    
+    
+    #add a barplot - NEED TO GET THIS FIXED 
+    
+ 
+    
   #reactive boxplot for Extent of Car Damage Boxplot
   
   output$carboxplot <- renderPlot({
@@ -57,8 +79,14 @@ function(input, output, session) {
         0, 
         6
       )
-  })
+  })}
   
+
+
+    
+  
+<<<<<<< HEAD
+=======
   output$cardenplot <- renderPlot({
     
     finimpdam %>%
@@ -91,3 +119,4 @@ function(input, output, session) {
   
   
 }
+>>>>>>> 2d7e8b19e9bbf8d2de26f3c93bcb3c903e64837f
