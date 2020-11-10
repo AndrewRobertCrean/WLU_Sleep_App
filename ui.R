@@ -138,7 +138,9 @@ dashboardPage(
         ),
         br(),
         fluidRow(
-          
+          box(width      = 12,
+              background = "navy",
+              p("The scatterplot below shows the relationships between different subjective sleep health ratings obtained from a survey. Compare the relationships by selecting desired input variables.")),
           
           #generate a row aith sidebar
           sidebarLayout(
@@ -169,7 +171,15 @@ dashboardPage(
         
         br(),
         fluidRow(
-          #generate a barplot
+         
+          box(width      = 12,
+              background = "navy",
+              p("The bargraph below shows summed subjective ratings of sleep health among railroad dispatchers. Compare sleep health ratings by demographic data.")),
+          
+          
+          
+          
+           #generate a barplot
           
           sidebarLayout(
             sidebarPanel(
