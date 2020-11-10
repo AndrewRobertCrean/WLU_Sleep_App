@@ -73,10 +73,15 @@ dashboardPage(
               "A third of US adults report that they usually get less than the recommended amount of sleep. Not getting enough sleep is linked with many chronic diseases and conditions—such as type 2 diabetes, heart disease, obesity, and depression—that threaten our nation’s health. Not getting enough sleep can lead to motor vehicle crashes and mistakes at work, which cause a lot of injury and disability each year. Getting enough sleep is not a luxury—it is something people need for good health. Sleep disorders can also increase a person’s risk of health problems. However, these disorders can be diagnosed and treated, bringing relief to those who suffer from them."
             ),
             valueBox(
-              '50M+', 
+              '50~70M', 
               "Americans have sleep disorders", 
               icon = icon("flag-usa")
-            ) 
+            ),
+            valueBox(
+              '1 in 3', 
+              "adults do not regularly get the recommended amount of uninterrupted sleep.", 
+              icon = icon("flag-usa")
+            )
           )
         ),
       br(),
@@ -103,6 +108,7 @@ dashboardPage(
       ),
       
       #"railroad"
+      
       tabItem(
         tabName = "railroad",
         h1(
@@ -139,11 +145,8 @@ dashboardPage(
         )
       ),
       
-      
-      
-     
-      
       #"car"
+      
       tabItem(
         tabName = "car",
         h1(
@@ -203,7 +206,9 @@ dashboardPage(
           )
         )
       ),
+      
       #"about"
+      
       tabItem(
         tabName = "about",
         h1(
