@@ -83,10 +83,7 @@ function(input, output, session) {
   
 
 
-    
   
-<<<<<<< HEAD
-=======
   output$cardenplot <- renderPlot({
     
     finimpdam %>%
@@ -118,5 +115,5 @@ function(input, output, session) {
   })
   
   
-}
->>>>>>> 2d7e8b19e9bbf8d2de26f3c93bcb3c903e64837f
+
+
