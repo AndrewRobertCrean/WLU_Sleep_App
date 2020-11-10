@@ -71,9 +71,9 @@ dashboardPage(
             "A third of US adults report that they usually get less than the recommended amount of sleep. Not getting enough sleep is linked with many chronic diseases and conditions—such as type 2 diabetes, heart disease, obesity, and depression—that threaten our nation’s health. Not getting enough sleep can lead to motor vehicle crashes and mistakes at work, which cause a lot of injury and disability each year. Getting enough sleep is not a luxury—it is something people need for good health. Sleep disorders can also increase a person’s risk of health problems. However, these disorders can be diagnosed and treated, bringing relief to those who suffer from them."
           ),
           valueBox(
-            14, 
-            "million new cases of HPV every year in the US", 
-            icon = icon("diagnoses")
+            '50M+', 
+            "Americans have sleep disorders", 
+            icon = icon("flag-usa")
           ) 
         ),
       br(),
