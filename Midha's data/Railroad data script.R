@@ -140,6 +140,8 @@ ggplot(new_tidy_table, aes(sleep_loss_stress, fill = alert_rating)) + geom_bar()
 ggplot(new_tidy_table, aes(sleep_loss_stress, fill = mentally_drained_stress)) + geom_bar()
 ggplot(new_tidy_table, aes(sleep_loss_stress, fill = phys_drained_stress)) + geom_bar()
 
+
+
 ggplot(new_tidy_table, aes(age_group , avg_work_hrs_week)) + geom_point()
 ggplot(new_tidy_table, aes(sex_desc , avg_work_hrs_week)) + geom_count(color = "blue", alpha = 0.2)
 ggplot(new_tidy_table, aes(sleep_loss_stress , alert_rating)) + geom_count(color = "blue", alpha = 0.2)
@@ -147,7 +149,10 @@ ggplot(new_tidy_table, aes(sleep_loss_stress , alert_rating)) + geom_count(color
 
 ## create a table of ratings for boxplot with sleep health variables only
 
-boxplot_variables <- select(new_tidy_table, sleep_loss_stress, 
+scatterplot_variables <- select(new_tidy_table, sleep_loss_stress, 
                             mentally_drained_stress, phys_drained_stress,
                             alert_rating, health_status_rating)
+boxplot_variables <- select(new_tidy_table, sleep_loss_stress, 
+                                mentally_drained_stress, phys_drained_stress,
+                                alert_rating, health_status_rating,age_desc, sex_desc)
 

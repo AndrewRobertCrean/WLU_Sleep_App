@@ -34,17 +34,18 @@ function(input, output) {
       
       #render a correlation graph
 
-        ggplot(boxplot_variables, aes_string(input$x_axis_input, input$y_axis_input))                            +
-        geom_count(color = "blue", alpha = 0.2)
+        ggplot(scatterplot_variables, aes_string(input$x_axis_input, input$y_axis_input))                            +
+        geom_count(color = "blue", alpha = 0.2) +  scale_size_continuous(range = c(6, 12))
         
     })
     
     
     #add a barplot - NEED TO GET THIS FIXED 
     output$bargraph <- renderPlot({
-      sleephealth_agg <- aggregate(boxplot_variables[,input$x_axis_bargraph], ~ sleep_loss_stress, boxplot_variables, sum)
-      barplot(boxplot_variables[,2], names.arg = boxplot_variables$sleep_loss_stress)
-    })
+      
+      ggplot(boxplot_variables, aes_string(input$x_axis_bargraph, fill = input$checkbox_var)) + geom_bar(alpha = 0.6)
+      
+      })
     
  
     

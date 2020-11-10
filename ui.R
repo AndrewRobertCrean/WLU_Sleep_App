@@ -146,10 +146,11 @@ dashboardPage(
             #define the sidebar with multiple input
             sidebarPanel(
               selectInput("x_axis_input", "Choose Sleep Health variable:",
-                          choices = colnames(boxplot_variables)
+                          choices = colnames(scatterplot_variables)
                           ),
               selectInput("y_axis_input", "Choose outcome variable:", 
-                          choices = colnames(boxplot_variables)),
+                          choices = colnames(scatterplot_variables),
+                          selected = c("alert_rating")),
               hr(),
               helpText("Data from Railroad Dispatcher survery year __ courtesy of__"))  
             
@@ -171,23 +172,25 @@ dashboardPage(
           #generate a barplot
           
           sidebarLayout(
-            sidebarpanel(
+            sidebarPanel(
               selectInput("x_axis_bargraph", "Choose Sleep Health variable:",
-                          choices = colnames(boxplot_variables)),
+                          choices = colnames(boxplot_variables[c(1:5)])),
+              radioButtons("checkbox_var", "Fill by demographic:",
+                                 choices = c("sex_desc", "age_desc"),
+                                 selected = "age_desc",
+                                 inline = FALSE)
+              ),
               mainPanel(
                 plotOutput("bargraph"),
                 position = c("left"),
-                fluid = TRUE
-              )
-            )
+                fluid = TRUE)
+  
           )
           
           
         )
         
   
-        
-        
               
       ),
       
