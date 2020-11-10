@@ -79,7 +79,7 @@ function(input, output, session) {
         0, 
         6
       )
-  })}
+  })
   
 
 
