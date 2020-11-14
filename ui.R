@@ -215,6 +215,43 @@ dashboardPage(
           )
           
           
+        ),
+        
+        br(),
+        fluidRow(
+          box(width      = 12,
+              background = "navy",
+              p("The heatmap below visualizes sleep health ratings among railroad dispatchers. Visualize stress about sleep loss by variables of interest.")),
+          sidebarLayout(
+            sidebarPanel(
+              selectInput("x_axis_tile", "Choose Sleep Health variable:",
+                          choices = c( 
+                                       "health status" = "health_status_rating",
+                                       "mentally drained stress" = "mentally_drained_stress",
+                                       "physically drained stress" = "phys_drained_stress",
+                                       "alertness" = "alert_rating",
+                                       "sex" = "sex_desc",
+                                       "age" = "age_desc"),
+                          selected = "phys_drained_stress"
+              ),
+              selectInput("y_axis_tile", "Choose outcome variable:",
+                          choices = c( 
+                                       "health status" = "health_status_rating",
+                                       "mentally drained stress" = "mentally_drained_stress",
+                                       "physically drained stress" = "phys_drained_stress",
+                                       "alertness" = "alert_rating",
+                                       "sex" = "sex_desc",
+                                       "age" = "age_desc"),
+                          selected = "alert_rating"
+              )
+            ),
+              
+            mainPanel(
+                plotOutput("tilegraph"),
+                position = c("left"),
+                fuild = TRUE)
+              
+          )
         )
         
   

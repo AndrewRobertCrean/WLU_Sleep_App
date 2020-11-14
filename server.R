@@ -37,7 +37,7 @@ function(session, input, output) {
         geom_count(color = "blue", alpha = 0.2) +  scale_size_continuous(range = c(6, 12)) + 
         labs(
           x = "Sleep health variable",
-          y = "Outcome of interest"
+          y = "Outcome"
         )
         
     })
@@ -45,9 +45,19 @@ function(session, input, output) {
     #upadte drop down list in case of event 
 
     
+    #add a geom-tile graph
+    output$tilegraph <- renderPlot({
+     
+       ggplot(boxplot_variables, aes_string(input$x_axis_tile, input$y_axis_tile)) + geom_tile(aes(fill = sleep_loss_stress), alpha = 0.4)+ 
+        labs(
+          x = "Sleep health variable",
+          y = "Outcome"
+        )
+      
+    })
     
     
-    #add a barplot - NEED TO GET THIS FIXED 
+    #add a barplot
     output$bargraph <- renderPlot({
       
       ggplot(boxplot_variables, aes_string(input$x_axis_bargraph, fill = input$checkbox_var)) + geom_bar(alpha = 0.6) + labs(
@@ -58,6 +68,11 @@ function(session, input, output) {
       })
     
  
+    
+    
+    
+    
+    
     
   #reactive boxplot for Extent of Car Damage Boxplot
   

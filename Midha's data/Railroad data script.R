@@ -156,3 +156,7 @@ boxplot_variables <- select(new_tidy_table, sleep_loss_stress,
                                 mentally_drained_stress, phys_drained_stress,
                                 alert_rating, health_status_rating,age_desc, sex_desc)
 
+
+ggplot(boxplot_variables, aes(sleep_loss_stress, health_status_rating)) + geom_tile(aes(fill = sex_desc), alpha = 0.4)
+
+
