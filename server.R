@@ -17,7 +17,7 @@ source("Midha's data/Railroad data script.R")
 
 #500 Cities
 
-function(input, output) {
+function(session, input, output) {
   
   #heat map of 500 cities sleep health
   output$citiesLeaflet <- renderLeaflet({ 
@@ -35,15 +35,26 @@ function(input, output) {
       #render a correlation graph
 
         ggplot(scatterplot_variables, aes_string(input$x_axis_input, input$y_axis_input))                            +
-        geom_count(color = "blue", alpha = 0.2) +  scale_size_continuous(range = c(6, 12))
+        geom_count(color = "blue", alpha = 0.2) +  scale_size_continuous(range = c(6, 12)) + 
+        labs(
+          x = "Sleep health variable",
+          y = "Outcome of interest"
+        )
         
     })
+    
+    #upadte drop down list in case of event 
+
+    
     
     
     #add a barplot - NEED TO GET THIS FIXED 
     output$bargraph <- renderPlot({
       
-      ggplot(boxplot_variables, aes_string(input$x_axis_bargraph, fill = input$checkbox_var)) + geom_bar(alpha = 0.6)
+      ggplot(boxplot_variables, aes_string(input$x_axis_bargraph, fill = input$checkbox_var)) + geom_bar(alpha = 0.6) + labs(
+        x = "Sleep health variable",
+        y = "Frequency"
+      )
       
       })
     

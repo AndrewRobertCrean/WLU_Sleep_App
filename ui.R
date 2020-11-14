@@ -148,13 +148,24 @@ dashboardPage(
             #define the sidebar with multiple input
             sidebarPanel(
               selectInput("x_axis_input", "Choose Sleep Health variable:",
-                          choices = colnames(scatterplot_variables)
+                          choices = c(
+                            "stress about sleep loss" = "sleep_loss_stress",
+                            "mentally drained stress" = "mentally_drained_stress",
+                            "physically drained stress" = "phys_drained_stress",
+                            "alertness" = "alert_rating",
+                            "health status" = "health_status_rating"
+                          )
                           ),
               selectInput("y_axis_input", "Choose outcome variable:", 
-                          choices = colnames(scatterplot_variables),
-                          selected = c("alert_rating")),
+                          choices = c(
+                            "stress about sleep loss" = "sleep_loss_stress",
+                            "mentally drained stress" = "mentally_drained_stress",
+                            "physically drained stress" = "phys_drained_stress",
+                            "alertness" = "alert_rating",
+                            "health status" = "health_status_rating"),
+                          selected = "alert_rating"),
               hr(),
-              helpText("Data from Railroad Dispatcher survery year __ courtesy of__"))  
+              helpText("Data from Railroad Dispatcher Survery, courtesy of U.S. Department of Transportation, Federal Railroad Administration."))  
             
             
             ,
@@ -184,9 +195,16 @@ dashboardPage(
           sidebarLayout(
             sidebarPanel(
               selectInput("x_axis_bargraph", "Choose Sleep Health variable:",
-                          choices = colnames(boxplot_variables[c(1:5)])),
-              radioButtons("checkbox_var", "Fill by demographic:",
-                                 choices = c("sex_desc", "age_desc"),
+                          choices = c(
+                            "stress about sleep loss" = "sleep_loss_stress",
+                            "mentally drained stress" = "mentally_drained_stress",
+                            "physically drained stress" = "phys_drained_stress",
+                            "alertness" = "alert_rating",
+                            "health status" = "health_status_rating"
+                          )),
+              radioButtons("checkbox_var", "Fill bin by demographic:",
+                                 choices = c("sex" = "sex_desc",
+                                             "age" = "age_desc"),
                                  selected = "age_desc",
                                  inline = FALSE)
               ),
