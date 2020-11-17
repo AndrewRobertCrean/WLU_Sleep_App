@@ -164,7 +164,7 @@ dashboardPage(
                             "health status" = "health_status_rating"),
                           selected = "alert_rating"),
               hr(),
-              helpText("Data from Railroad Dispatcher Survery, courtesy of U.S. Department of Transportation, Federal Railroad Administration."))  
+              helpText("Data from Railroad Dispatcher Survery (2008), courtesy of U.S. Department of Transportation, Federal Railroad Administration."))  
             
             
             ,
